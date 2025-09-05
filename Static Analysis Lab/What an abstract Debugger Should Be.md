@@ -27,3 +27,7 @@ For example, what dials and nobs should the user be able to use?
 An abstract debugger should be as accessible as a normal debugger. A little training is all that a user should be able to use such a tool.
 
 I think it would be cool if you could turn on and off abstract debugging in a debugging context. I don't know if it would be possible but it might ease new users into using the tool.
+
+You should be able to export the state of the debugger either to load in at a future time or at least into some format that can be viewed (say an image).
+
+[[What an abstract Debugger Should Be]]

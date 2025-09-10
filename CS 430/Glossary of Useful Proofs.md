@@ -7,3 +7,4 @@
 **add_comm**: forall natural numbers n m, n + m = m + n
 **add_assoc**: forall natural numbers n m p, n + (m + p) = (n + m) + p
 **even_S**: a different definition of evenness
+**add_shuffle3**: forall natural numbers n m p, n + (m + p) = m + (n + p)

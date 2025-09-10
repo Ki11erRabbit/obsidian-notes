@@ -8,3 +8,12 @@ By Karoliine Holter, Juhan Oskar Hennoste, Patrick Lam, Simmo Saan, Vesal Vojdan
 ### Ideas
 #### An abstract interpreter is a static analysis tool
 An abstract debugger can show the abstract state of a program at a given state.
+
+#### [Abstract Debugging with GobPie](https://patricklam.ca/papers/24.debt.abs-debug-demo.pdf)
+By Karoliine Holter, Juhan Oskar Hennoste, Patrick Lam, Simmo Saan, Vesal Vojdani
+
+### Questions
+
+
+### Ideas
+Shows multiple possible states for a given

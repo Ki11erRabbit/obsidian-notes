@@ -30,4 +30,4 @@ I think it would be cool if you could turn on and off abstract debugging in a de
 
 You should be able to export the state of the debugger either to load in at a future time or at least into some format that can be viewed (say an image).
 
-[[What an abstract Debugger Should Be]]
+[[What an abstract Debugger Should Be Old]]

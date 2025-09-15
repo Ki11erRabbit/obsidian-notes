@@ -8,3 +8,7 @@
 **add_assoc**: forall natural numbers n m p, n + (m + p) = (n + m) + p
 **even_S**: a different definition of evenness
 **add_shuffle3**: forall natural numbers n m p, n + (m + p) = m + (n + p)
+**mult_1_l**: forall natural numbers n, 1 \* n = n
+**mull_comm**: forall natural numbers n m, n \* m = m \* n
+**mult_plus_distr_r**: forall natural numbers n m p, (n + m) \* p = (n \* p) + (m \* p)
+**mult_assoc**: forall natural numbers n m p, n \* (m \* p) = (n \* m) \* p

@@ -6,4 +6,4 @@
 
 
 ## Notes
-- `x |-> y` means that x is y's value
+- `x |-> y` It is a mapping from x to y

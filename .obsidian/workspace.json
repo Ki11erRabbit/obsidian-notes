@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 345/Day 7 Scheduling.md",
+                "file": "Static Analysis Lab/Static Analysis Tool.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 7 Scheduling"
+              "title": "Static Analysis Tool"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "CS 345/Day 6 Processes.md",
     "CS 345/Day 7 Scheduling.md",
+    "Static Analysis Lab/Static Analysis Tool.md",
+    "CS 345/Day 6 Processes.md",
     "Static Analysis Lab/Analysis of Programs and how an Abstract Debugger can help.md",
     "Static Analysis Lab/Meeting 3.md",
     "Religion C 200/Day 6 The Fall of Adam and Eve.md",
@@ -233,7 +234,6 @@
     "Religion C 200/Day 2.md",
     "Static Analysis Lab/Exploration of Abstract Debuggers.md",
     "Static Analysis Lab/Properties of Programs.md",
-    "CS 502/Day 1.md",
     "CS 502",
     "CS 430",
     "Untitled.base",

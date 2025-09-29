@@ -8,7 +8,7 @@ Process kernel thread
 
 "Always two there are", a process user thread and process kernel thread
 
-powers of 2:
+#### Powers of 2
 10: kilo
 20: mega
 30: giga

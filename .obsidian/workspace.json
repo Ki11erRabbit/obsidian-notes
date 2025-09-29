@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 345/Day 9 Threads.md",
+                "file": "CS 345/Day 10 Memory Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 9 Threads"
+              "title": "Day 10 Memory Management"
             }
           },
           {
@@ -207,8 +207,11 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "CS 430/Day 7 Tactics.md",
     "CS 345/Day 9 Threads.md",
+    "CS 345/Day 10 Memory Management.md",
+    "Religion C 200/Day 8 Gender is an Essential Characteristic.md",
+    "CS 345/Adding Threads to XV6.md",
+    "CS 430/Day 7 Tactics.md",
     "CS 345/Day 8 Mutual Exclusion.md",
     "Religion C 200/Day 7 Jesus Christ The Sure Foundation of an Eternal Family.md",
     "CS 430/Day 4.md",
@@ -230,9 +233,6 @@
     "Static Analysis Lab/Interface for Abstract Debugger.md",
     "Religion C 200/Day 4 The Eternal Family and the Nature of Our Heavenly Parents.md",
     "Static Analysis Lab/What an abstract Debugger Should Be.md",
-    "Static Analysis Lab/Minimal Interface of an Abstract Debugger.md",
-    "Static Analysis Lab/Vocabulary.md",
-    "Static Analysis Lab/Meeting 2.md",
     "Static Analysis Lab/Untitled",
     "CS 502",
     "CS 430",

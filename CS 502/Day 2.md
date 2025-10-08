@@ -1,0 +1,1 @@
+for next class make a lamp list, following the videos on learning suite

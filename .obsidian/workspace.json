@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 345/Day 14 Memory Management 5.md",
+                "file": "CS 345/Day 14 Storage Allocation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 14 Memory Management 5"
+              "title": "Day 14 Storage Allocation"
             }
           },
           {
@@ -207,8 +207,10 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
+    "Projects/Koru Text Editor.md",
+    "CS 345/Day 14 Storage Allocation.md",
+    "Projects",
     "Static Analysis Lab/Meeting 6.md",
-    "CS 345/Day 14 Memory Management 5.md",
     "Static Analysis Lab/Meeting 5.md",
     "CS 502/Day 2.md",
     "CS 430/Day 10.md",
@@ -233,7 +235,6 @@
     "Religion C 200/Day 8 Gender is an Essential Characteristic.md",
     "CS 345/Adding Threads to XV6.md",
     "CS 345/Day 8 Mutual Exclusion.md",
-    "Religion C 200/Day 7 Jesus Christ The Sure Foundation of an Eternal Family.md",
     "Static Analysis Lab/Untitled",
     "CS 502",
     "CS 430",
@@ -242,7 +243,6 @@
     "Religion C 200",
     "Archive",
     "CS 345",
-    "CS 345.base",
     "Untitled.canvas"
   ]
 }

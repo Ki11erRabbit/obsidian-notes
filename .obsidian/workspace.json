@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 345/Day 14 Storage Allocation.md",
+                "file": "CS 430/Day 11 Inductive Propositions 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 14 Storage Allocation"
+              "title": "Day 11 Inductive Propositions 1"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "Projects/Koru Text Editor.md",
     "CS 345/Day 14 Storage Allocation.md",
+    "CS 430/Day 11 Inductive Propositions 1.md",
+    "Projects/Koru Text Editor.md",
     "Projects",
     "Static Analysis Lab/Meeting 6.md",
     "Static Analysis Lab/Meeting 5.md",
@@ -234,7 +235,6 @@
     "CS 345/Day 9 Threads.md",
     "Religion C 200/Day 8 Gender is an Essential Characteristic.md",
     "CS 345/Adding Threads to XV6.md",
-    "CS 345/Day 8 Mutual Exclusion.md",
     "Static Analysis Lab/Untitled",
     "CS 502",
     "CS 430",

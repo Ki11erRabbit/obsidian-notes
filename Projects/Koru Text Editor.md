@@ -1,5 +1,44 @@
 
-
-## Shared state
-Provide handles to Lua threads that gives exclusive access to the resource.
-Lua threads must release resources to prevent issues.
+# Todo List
+- [ ] Session Features
+	- [ ] Lua API
+		- [ ] A way to add new keybindings
+		- [ ] A way to configure the UI
+		- [ ] Major Mode
+			- [ ] Defines how the UI should render itself. This should be definable in Lua
+			- [ ] Commands that are native only to the major mode
+			- [ ] Provides information commands for querying state (line, row, filename)
+		- [ ] Minor Modes
+			- [ ] Should provide a way to add additional functionality to a Major Mode. In fact, Minor Modes should be the ones that provide the keybindings for Major Modes. Minor Modes should also be able to provide their own commands.
+			- [ ] Provides a way to write to Left, Center, Right Modeline spots
+		- [ ] Hooks
+			- [ ] File Open Hook
+			- [ ] File Type Open Hook
+			- [ ] File Close Hook
+			- [ ] File Save Hook
+			- [ ] File Reload Hook
+			- [ ] User Hooks
+	- [ ] Key Bindings
+		- [ ] Optional Default Handler: Only Handles keys if the keybuffer is empty. If the keybuffer has items in it, then handler isn't called until keybuffer is empty. This would be used for things like insert mode for Vim/Kakoune. It is the job of this handler to put keys in the keybuffer for key sequences.
+		- [ ] Keybuffer for all non-handled keys: Keybuffer is used for key sequences. It is matched greedily and once there is a match it will execute a command. It should also flush the keybuffer of the UI since the UI may have its own keybindings. The UI should also be able to flush the keybuffer of the session if it matched something.
+	- [ ] Commands
+		- [ ] a way to register commands
+		- [ ] A way to allow for documentation with commands
+		- [ ] a completion interface that can be used to show possible values for a command being entered through the command interface
+		- [ ] A way to bind commands to menu elements like a menu bar, sidebar, context menu, etc to the UI from Lua
+- [ ] Cursors
+	- [ ] Singular Cursors
+	- [ ] Draw Cursor on clients
+	- [ ] Cursor Scrolls with one line around it
+	- [ ] Multiple Cursors
+	- [ ] Main Cursor Scrolls with one line around it
+- [ ] UI
+	- [ ] A way to display Modeline
+	- [ ] For frontends that support it, the ability to display styled text of various fonts and sizes
+	- [ ] Menu bar with dropdown menus (use the macos bar if on macos for the gui frontend)
+	- [ ] Side bars with dropdown menus
+	- [ ] Theme Interface
+	- [ ] Right Click context menu
+	- [ ] Keybindings and commands that are exclusive to the frontend
+	- [ ] Splits: A way to show multiple buffers at the same time in the same client
+		- [ ] Splits are able to change the amount of space they take up

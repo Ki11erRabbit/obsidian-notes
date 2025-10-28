@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux Club/Ansible Workshop Ideas.md",
+                "file": "CS 345/Day 19 IO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ansible Workshop Ideas"
+              "title": "Day 19 IO"
             }
           },
           {
@@ -207,11 +207,13 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "CS 430/Day 13 Inductive Propositions 3.md",
+    "Religion C 200/Day 15 The Law of Chastity.md",
+    "CS 345/Day 19 IO.md",
+    "Religion C 200/Day 14 Intimacy In Marriage.md",
     "Linux Club/Ansible Workshop Ideas.md",
+    "CS 430/Day 13 Inductive Propositions 3.md",
     "CS 345/Day 18 Security 2.md",
     "CS 345/Day 17 Security 1.md",
-    "Religion C 200/Day 14 Intimacy In Marriage.md",
     "Static Analysis Lab/Meeting 7.md",
     "CS 502/Day 4 Finding Contacts.md",
     "CS 430/Day 12 Inductive Propositions 2.md",
@@ -231,8 +233,6 @@
     "CS 345/Day 15 Midterm Review.md",
     "CS 345/Day 4 Risc-V.md",
     "CS 345/Day 5 Introduction to System Calls.md",
-    "CS 345/Day 7 Scheduling.md",
-    "CS 345/Day 6 Processes.md",
     "Projects",
     "Linux Club",
     "Static Analysis Lab/Untitled",

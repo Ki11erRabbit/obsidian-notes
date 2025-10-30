@@ -1,0 +1,1 @@
+assert as a proof object is a let binding

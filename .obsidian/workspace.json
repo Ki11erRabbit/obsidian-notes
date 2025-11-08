@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 430/Day 17 Imperative Programs.md",
+                "file": "CS 345/Day 23 File Systems Lower Layers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 17 Imperative Programs"
+              "title": "Day 23 File Systems Lower Layers"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "CS 345/Day 22 Extending Kernel Functionality.md",
     "CS 430/Day 17 Imperative Programs.md",
+    "CS 345/Day 23 File Systems Lower Layers.md",
+    "CS 345/Day 22 Extending Kernel Functionality.md",
     "Projects/Koru Text Editor.md",
     "Religion C 200/Day 17 By Divine Design Partnership in Marriage and Navigating Conflict.md",
     "Static Analysis Lab/Meeting 9.md",
@@ -232,7 +233,6 @@
     "CS 502/Day 5 Networking & Informational Interviews.md",
     "CS 430/Day 14 Maps.md",
     "Religion C 200/Day 15 The Law of Chastity.md",
-    "Religion C 200/Day 14 Intimacy In Marriage.md",
     "Projects",
     "Linux Club",
     "Static Analysis Lab/Untitled",

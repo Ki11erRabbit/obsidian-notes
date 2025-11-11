@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS 345/Day 24 File Systems Higher Levels.md",
+                "file": "CS 430/Day 18 Equivalence.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 24 File Systems Higher Levels"
+              "title": "Day 18 Equivalence"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "Religion C 200/Day 18 The Divine Responsibilities of Mothers.md",
     "CS 345/Day 24 File Systems Higher Levels.md",
+    "CS 430/Day 18 Equivalence.md",
+    "Religion C 200/Day 18 The Divine Responsibilities of Mothers.md",
     "CS 345/Day 23 File Systems Lower Layers.md",
     "CS 430/Day 17 Imperative Programs.md",
     "CS 345/Day 22 Extending Kernel Functionality.md",
@@ -232,7 +233,6 @@
     "CS 345/Day 10 Memory Management 1.md",
     "CS 345/Day 19 IO.md",
     "Static Analysis Lab/Meeting 8.md",
-    "CS 502/Day 5 Networking & Informational Interviews.md",
     "Projects",
     "Linux Club",
     "Static Analysis Lab/Untitled",

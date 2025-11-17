@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Religion C 200/Day 20 Parenting Principles.md",
+                "file": "CS 345/Day 26 Log Structured Filesystem and Memory Mapped IO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 20 Parenting Principles"
+              "title": "Day 26 Log Structured Filesystem and Memory Mapped IO"
             }
           },
           {
@@ -207,10 +207,11 @@
   },
   "active": "6f84ebf9be559887",
   "lastOpenFiles": [
+    "Religion C 200/Day 20 Parenting Principles.md",
+    "CS 345/Day 26 Log Structured Filesystem and Memory Mapped IO.md",
     "Religion C 200/Day 5 The Creation.md",
     "Religion C 200/Day 4 The Eternal Family and the Nature of Our Heavenly Parents.md",
     "Religion C 200/Day 3 The Relational Nature of Heavenly Father's Plan of Salvation.md",
-    "Religion C 200/Day 20 Parenting Principles.md",
     "CS 345/Day 25 File System Resilience.md",
     "Static Analysis Lab/Meeting 8.md",
     "Static Analysis Lab/Meeting 9.md",
@@ -234,7 +235,6 @@
     "CS 430/Day 17 Imperative Programs.md",
     "CS 345/Day 22 Extending Kernel Functionality.md",
     "Projects/Koru Text Editor.md",
-    "CS 430/Day 16 Imperative Programs.md",
     "Projects",
     "Linux Club",
     "Static Analysis Lab/Untitled",

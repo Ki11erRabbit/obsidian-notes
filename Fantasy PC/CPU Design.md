@@ -20,27 +20,27 @@ You lose half of the amount of registers as 32 bit mode and quadruple the amount
 You retain access to 32 bit floats and gain access to 64 bit floats but they share the same registers
 
 ## Mode Features
-| Mode      | Integer Registers            | Floating Point Registers | Control Registers                                                                                                                                                                                  | Misc Registers                         | Max Cores | Max Cards | Clock Speed | Max Addressable RAM               |
-| --------- | ---------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | --------- | --------- | ----------- | --------------------------------- |
-| 16 bit    | qr0-qr127 (quarter register) | None                     |                                                                                                                                                                                                    |                                        | 1 Core    | 4         | 8 MHz       | 65,536 bytes (64 kilobytes)       |
-| 32 bit    | hr0-hr63 (half register)     | f0-f31 (float)           | floatexn (float exceptions)                                                                                                                                                                        | coreid (current core id)               | 2 Cores   | 8         | 800 MHz     | 4,294,967,296 bytes (4 gigabytes) |
-| 64 bit    | r0-r31 (register)            | d0-d31 (float)           | floatexn (float exceptions)                                                                                                                                                                        | coreid (current core id)               | 4 Cores   | 16        | 1.6 GHz     | 8,589,934,592 bytes (8 gigabytes) |
-| All Modes |                              |                          | intexn (integer exceptions)<br>trap (stores address of trap handlers)<br>trapcause (stores cause of trap)<br>trapval (stores faulting value)<br>inter (1 enables interrupts)<br>zero (always zero) | seed (random initial seed 64 bits)<br> |           |           |             |                                   |
+| Mode      | Integer Registers            | Floating Point Registers | Control Registers                                                                                                                                                                | Misc Registers                                               | Max Cores | Max Cards | Clock Speed | Max Addressable RAM               |
+| --------- | ---------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- | --------- | ----------- | --------------------------------- |
+| 16 bit    | qr0-qr127 (quarter register) | None                     |                                                                                                                                                                                  |                                                              | 1 Core    | 4         | 8 MHz       | 65,536 bytes (64 kilobytes)       |
+| 32 bit    | hr0-hr63 (half register)     | f0-f31 (float)           | floatexn (float exceptions)                                                                                                                                                      | coreid (current core id)                                     | 2 Cores   | 8         | 800 MHz     | 4,294,967,296 bytes (4 gigabytes) |
+| 64 bit    | r0-r31 (register)            | d0-d31 (float)           | floatexn (float exceptions)                                                                                                                                                      | coreid (current core id)                                     | 4 Cores   | 16        | 1.6 GHz     | 8,589,934,592 bytes (8 gigabytes) |
+| All Modes |                              |                          | intexn (integer exceptions)<br>trap (stores address of trap handlers)<br>trapcause (stores cause of trap)<br>trapval (stores faulting value)<br>inter (1 enables interrupts)<br> | seed (random initial seed 64 bits)<br>zero (always zero)<br> |           |           |             |                                   |
 
 ## Control Register Bits
 ###### intexn
 Convert is when a float can't be represented as an int
 
-| 15  | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5   | 4       | 3       | 2         | 1        | 0                |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ------- | ------- | --------- | -------- | ---------------- |
-|     |     |     |     |     |     |     |     |     |     |     | Convert | Wrapped | Underflow | Overflow | Division By Zero |
+| 15  | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5   | 4       | 3         | 2        | 1                | 0       |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ------- | --------- | -------- | ---------------- | ------- |
+|     |     |     |     |     |     |     |     |     |     |     | Wrapped | Underflow | Overflow | Division By Zero | Convert |
 ###### floatexn
 see IEEE 754 for description of exceptional codes
 Convert is when you can't represent an int as a float properly
 
-| 15  | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5       | 4       | 3       | 2         | 1        | 0                |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ------- | ------- | ------- | --------- | -------- | ---------------- |
-|     |     |     |     |     |     |     |     |     |     | Convert | Inexact | Invalid | Underflow | Overflow | Division By Zero |
+| 15  | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5       | 4       | 3         | 2        | 1                | 0       |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ------- | ------- | --------- | -------- | ---------------- | ------- |
+|     |     |     |     |     |     |     |     |     |     | Inexact | Invalid | Underflow | Overflow | Division By Zero | Convert |
 # ISA
 
 | Instruction | Form                                    | Description                                                                                                                     | Example             | Clock Cycles |
@@ -100,3 +100,47 @@ Convert is when you can't represent an int as a float properly
 | bleu        | bles src1, src2, offset                 | Branch if src1 is less than or equal to src2 using unsigned comparison                                                          |                     | 1            |
 | bges        | bges src1, src2, offset                 | Branch if src1 is greater than or equal to src2 using signed comparison                                                         |                     | 1            |
 | bgeu        | bgeu src1, src2, offset                 | Branch if src1 is greater than or equal to src2 using unsigned comparison                                                       |                     | 1            |
+# Calling Convention
+
+###### 16 bit mode
+| Register  | ABI Name  | Description                                                          | Saver  |
+| --------- | --------- | -------------------------------------------------------------------- | ------ |
+| qr0       | ra        | Return Address                                                       | Caller |
+| qr1       | sp        | Stack Pointer                                                        | Callee |
+| qr2       | pc        | Program Counter                                                      |        |
+| qr3       | ret       | Return Value                                                         | Caller |
+| qr4-45    | t0-41     | Temporaries                                                          | Caller |
+| qr46-86   | s0-41     | Saved Register                                                       | Callee |
+| qr89-127  | a0-a41    | Function Arguments                                                   | Caller |
+| zero      | zero      | Hard-wired zero                                                      |        |
+| intexn    | intexn    | Bitflags of integer exceptions                                       |        |
+| trap      | trap      | Stores address of trap handler                                       |        |
+| trapcause | trapcause | Stores error code for trap reason                                    |        |
+| trapval   | trapval   | Stores value that caused trap                                        |        |
+| inter     | inter     | Determines if interrupts are enabled or not. (1 enabled, 0 disabled) |        |
+| seed      | seed      | Seed value set at startup                                            |        |
+
+###### 32 bit mode
+
+| Register  | ABI Name  | Description                                                          | Saver  |
+| --------- | --------- | -------------------------------------------------------------------- | ------ |
+| hr0       | ra        | Return Address                                                       | Caller |
+| hr1       | sp        | Stack Pointer                                                        | Callee |
+| hr2       | pc        | Program Counter                                                      |        |
+| hr3       | ret       | Return Value                                                         | Caller |
+| hr4-23    | t0-19     | Temporaries                                                          | Caller |
+| hr24-43   | s0-19     | Saved Register                                                       | Callee |
+| hr44-63   | a0-19     | Function Arguments                                                   | Caller |
+| f0-1      | fret0-1   | FP Return Values                                                     | Caller |
+| f2-11     | ft0-9     | FP Temporaries                                                       | Caller |
+| f12-21    | fs0-9     | FP Saved                                                             | Callee |
+| f22-31    | fa0-9     | FP Function Arguments                                                | Caller |
+| zero      | zero      | Hard-wired zero                                                      |        |
+| intexn    | intexn    | Bitflags of integer exceptions                                       |        |
+| floatexn  | floatexn  | Bitflags of float exceptions                                         |        |
+| trap      | trap      | Stores address of trap handler                                       |        |
+| trapcause | trapcause | Stores error code for trap reason                                    |        |
+| trapval   | trapval   | Stores value that caused trap                                        |        |
+| inter     | inter     | Determines if interrupts are enabled or not. (1 enabled, 0 disabled) |        |
+| seed      | seed      | Seed value set at startup                                            |        |
+| coreid    | coreid    | Current Core ID                                                      |        |

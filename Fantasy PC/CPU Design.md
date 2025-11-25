@@ -108,10 +108,10 @@ Convert is when you can't represent an int as a float properly
 | qr0       | ra        | Return Address                                                       | Caller |
 | qr1       | sp        | Stack Pointer                                                        | Callee |
 | qr2       | pc        | Program Counter                                                      |        |
-| qr3       | ret       | Return Value                                                         | Caller |
+| qr3       | fp        | Frame Pointer                                                        | Caller |
 | qr4-45    | t0-41     | Temporaries                                                          | Caller |
 | qr46-86   | s0-41     | Saved Register                                                       | Callee |
-| qr89-127  | a0-a41    | Function Arguments                                                   | Caller |
+| qr89-127  | a0-a41    | Function Arguments/Return Values                                     | Caller |
 | zero      | zero      | Hard-wired zero                                                      |        |
 | intexn    | intexn    | Bitflags of integer exceptions                                       |        |
 | trap      | trap      | Stores address of trap handler                                       |        |
@@ -127,14 +127,38 @@ Convert is when you can't represent an int as a float properly
 | hr0       | ra        | Return Address                                                       | Caller |
 | hr1       | sp        | Stack Pointer                                                        | Callee |
 | hr2       | pc        | Program Counter                                                      |        |
-| hr3       | ret       | Return Value                                                         | Caller |
+| hr3       | fp        | Frame Pointer                                                        | Caller |
 | hr4-23    | t0-19     | Temporaries                                                          | Caller |
 | hr24-43   | s0-19     | Saved Register                                                       | Callee |
-| hr44-63   | a0-19     | Function Arguments                                                   | Caller |
+| hr44-63   | a0-19     | Function Arguments/Return Values                                     | Caller |
 | f0-1      | fret0-1   | FP Return Values                                                     | Caller |
 | f2-11     | ft0-9     | FP Temporaries                                                       | Caller |
 | f12-21    | fs0-9     | FP Saved                                                             | Callee |
 | f22-31    | fa0-9     | FP Function Arguments                                                | Caller |
+| zero      | zero      | Hard-wired zero                                                      |        |
+| intexn    | intexn    | Bitflags of integer exceptions                                       |        |
+| floatexn  | floatexn  | Bitflags of float exceptions                                         |        |
+| trap      | trap      | Stores address of trap handler                                       |        |
+| trapcause | trapcause | Stores error code for trap reason                                    |        |
+| trapval   | trapval   | Stores value that caused trap                                        |        |
+| inter     | inter     | Determines if interrupts are enabled or not. (1 enabled, 0 disabled) |        |
+| seed      | seed      | Seed value set at startup                                            |        |
+| coreid    | coreid    | Current Core ID                                                      |        |
+
+###### 64 bit mode
+| Register  | ABI Name  | Description                                                          | Saver  |
+| --------- | --------- | -------------------------------------------------------------------- | ------ |
+| r0        | ra        | Return Address                                                       | Caller |
+| r1        | sp        | Stack Pointer                                                        | Callee |
+| r2        | pc        | Program Counter                                                      |        |
+| r3        | fp        | Frame Pointer                                                        | Caller |
+| r4-13     | t0-9      | Temporaries                                                          | Caller |
+| r14-22    | s0-8      | Saved Register                                                       | Callee |
+| r23-31    | a0-8      | Function Arguments/Return Values                                     | Caller |
+| d0-1      | dret0-1   | FP (double) Return Values                                            | Caller |
+| d2-11     | dt0-9     | FP (double) Temporaries                                              | Caller |
+| d12-21    | ds0-9     | FP (double) Saved                                                    | Callee |
+| d22-31    | da0-9     | FP (double) Function Arguments                                       | Caller |
 | zero      | zero      | Hard-wired zero                                                      |        |
 | intexn    | intexn    | Bitflags of integer exceptions                                       |        |
 | floatexn  | floatexn  | Bitflags of float exceptions                                         |        |

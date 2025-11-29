@@ -63,8 +63,7 @@
               "title": "What an abstract Debugger Should Be"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -220,10 +219,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4daa79b76e194cc2",
+  "active": "6f84ebf9be559887",
   "lastOpenFiles": [
-    "Fantasy PC/CPU Design.md",
     "Fantasy PC/Expansion Cards.md",
+    "Fantasy PC/CPU Design.md",
     "Static Analysis Lab/Vocabulary.md",
     "CS 430/Day 21 Hoare Logic 2.md",
     "CS 345/Day 28 File System Features and NFS (Network File System).md",

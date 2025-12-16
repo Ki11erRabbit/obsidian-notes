@@ -68,7 +68,7 @@ struct BytecodeTable {
 #[repr(C)]
 /// Mirrors the BytecodeTable
 struct LocationMap {
-	map: [[(u32, u32)]]
+	map: [[(u32, u32, StringIndex)]]
 }
 
 enum TypeTag {

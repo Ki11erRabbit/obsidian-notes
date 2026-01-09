@@ -70,3 +70,6 @@ Agenda for the the Monday meeting
 	- stakeholders
 	- Product Backlog Items
 - Communication (plans/expectations)
+
+
+

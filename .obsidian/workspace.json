@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Software Engineering Capstone/Day 02 Eliciting and Validating Requirements.md",
+                "file": "Static Analysis Lab/Higher Order Inductive Invariants/Abstract Definitional Interpreter.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 02 Eliciting and Validating Requirements"
+              "title": "Abstract Definitional Interpreter"
             }
           },
           {
@@ -222,8 +222,11 @@
   },
   "active": "4daa79b76e194cc2",
   "lastOpenFiles": [
-    "Software Engineering Capstone/Day 01.md",
+    "Static Analysis Lab/Higher Order Inductive Invariants/Logic-Flow Analysis of Higher-Order Programs.md",
+    "Static Analysis Lab/Higher Order Inductive Invariants/Abstract Definitional Interpreter.md",
     "Software Engineering Capstone/Day 02 Eliciting and Validating Requirements.md",
+    "Static Analysis Lab/Higher Order Inductive Invariants",
+    "Software Engineering Capstone/Day 01.md",
     "Static Analysis Lab/Winter 2026/Meeting 01.md",
     "Static Analysis Lab/Winter 2026/Untitled.md",
     "Static Analysis Lab/0 CFA.md",
@@ -255,9 +258,6 @@
     "Untitled.base",
     "CS 502/Day 6 Salary Negotiations.md",
     "CS 345/Day 29 Key Value Stores and FUSE.md",
-    "Religion C 200/Day 22 Individual Adaptation.md",
-    "Fantasy PC/CPU Design.md",
-    "Fantasy PC",
     "Untitled.canvas"
   ]
 }

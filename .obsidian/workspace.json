@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Software Engineering Capstone/Day 05 Doing Sprint Planning.md",
+                "file": "Software Engineering Capstone/Day 06 Lecture Team Roles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 05 Doing Sprint Planning"
+              "title": "Day 06 Lecture Team Roles"
             }
           },
           {
@@ -236,15 +236,17 @@
   },
   "active": "2f77a8a98eff7762",
   "lastOpenFiles": [
-    "Software Engineering Capstone/Day 04 Sprint Planning and Product Backlog.md",
+    "Software Engineering Capstone/Day 01 Lecture.md",
+    "Software Engineering Capstone/Day 02 Lecture Eliciting and Validating Requirements.md",
+    "Software Engineering Capstone/Day 04 Lecture Sprint Planning and Product Backlog.md",
+    "Software Engineering Capstone/Day 06 Lecture Team Roles.md",
+    "Software Engineering Capstone/Backend Team Meeting 01.md",
     "Software Engineering Capstone/Day 05 Doing Sprint Planning.md",
     "Static Analysis Lab/Winter 2026/Meeting 02.md",
     "Static Analysis Lab/Higher Order Inductive Invariants/Terminology.md",
     "Static Analysis Lab/Higher Order Inductive Invariants/Abstract Definitional Interpreter.md",
     "Static Analysis Lab/Higher Order Inductive Invariants/Logic-Flow Analysis of Higher-Order Programs.md",
-    "Software Engineering Capstone/Day 02 Eliciting and Validating Requirements.md",
     "Static Analysis Lab/Higher Order Inductive Invariants",
-    "Software Engineering Capstone/Day 01.md",
     "Static Analysis Lab/Winter 2026/Meeting 01.md",
     "Static Analysis Lab/0 CFA.md",
     "Static Analysis Lab/Winter 2026",
@@ -268,8 +270,6 @@
     "Religion C 200/Day 24 Promoting, Maintaining, and Strengthening the Family.md",
     "CS 345/Day 30 High Speed Networking & RedLeaf.md",
     "CS 430/Day 23 Small Step.md",
-    "CS 430/Day 22 Small Step.md",
-    "Religion C 200/Day 23 Same-Sex Attraction.md",
     "Untitled 1.base",
     "Untitled.base",
     "Untitled.canvas"

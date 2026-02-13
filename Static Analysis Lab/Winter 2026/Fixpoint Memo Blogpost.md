@@ -13,12 +13,12 @@ talk about mechanics, named computations, and dependencies emerge from computati
 
 keep it accessible and introduce monads and continuations at the end
 
-# A Small yet powerful tool for your toolbelt
+# A Small yet powerful tool for your belt
 
 We have a small library that we use in our lab that enables us to do our work efficiently. This library can be used for all sorts of things from parsing, and abstract interpretation to implementing Datalog or performing type inference. The library provides a framework for working with fixpoint computation with memoization.
 
 ## What is a fixpoint?
-A fixpoint (or fixed point) of a function is a value that maps to itself. For example for the function `f(x) = x^2`, the fixpoint of this function is `0` and `1` since `x = x^x` for those situations. You can think of a fixpoint as a stable solution for a problem where input doesn't change output.
+A fixpoint (or fixed point) of a function is a value that maps to itself. For example for the function `f(x) = x^2`, the fixpoint of this function is `0` and `1` since `x = x^2` for those situations. You can think of a fixpoint as a stable solution for a problem where input doesn't change output.
 
 ### What is a fixpoint solver
 A fixpoint solver's job is to find this stable solution for a given equation because many fixpoints of functions are not trivial to produce. The solver's job is to apply a function on a given input until the sequence of output converges. In other words, the limit of this iteration is the fixpoint of the function for the given input. 

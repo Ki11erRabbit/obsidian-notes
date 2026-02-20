@@ -64,6 +64,20 @@
             }
           },
           {
+            "id": "70339e3e92658070",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Modernizing Software Verification.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Modernizing Software Verification"
+            }
+          },
+          {
             "id": "f9938f481b53e60a",
             "type": "leaf",
             "state": {
@@ -78,7 +92,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -234,10 +248,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9ae53ab471091733",
+  "active": "70339e3e92658070",
   "lastOpenFiles": [
-    "Static Analysis Lab/Winter 2026/Fixpoint Memo Blogpost.md",
     "Static Analysis Lab/Winter 2026/Meeting 05.md",
+    "Modernizing Software Verification.md",
+    "CS Seminar",
+    "Static Analysis Lab/Winter 2026/Fixpoint Memo Blogpost.md",
     "Static Analysis Lab/Vocabulary.md",
     "Static Analysis Lab/Winter 2026/Meeting 04.md",
     "Static Analysis Lab/Winter 2026/Meeting 02.md",
@@ -269,9 +285,7 @@
     "Koka",
     "CS 345/Day 32.md",
     "Religion C 200/Day 25 The Eternal Family A Proclamation to the World.md",
-    "Static Analysis Lab/Meeting 13.md",
     "Untitled 1.base",
-    "Untitled.base",
     "Untitled.canvas"
   ]
 }

@@ -1,5 +1,5 @@
 For blog audience
-cs programers who at least know what monads
+cs programmers who at least know what monads
 couldn't tell you what a fixed point is off the top of their head or how monads can do with it
 
 bring up fixed points, datalog, first and follow sets of a context free grammar, ask llm for more examples
@@ -15,7 +15,7 @@ keep it accessible and introduce monads and continuations at the end
 
 # A Small yet powerful tool for your belt
 
-We have a small library that we use in our lab that enables us to do our work efficiently. This library can be used for all sorts of things from parsing, and abstract interpretation to implementing Datalog or performing type inference. The library provides a framework for working with fixpoint computation with memoization.
+We have a small library that we use in our lab that enables us to do our work efficiently. This library can be used for all sorts of things from parsing, abstract interpretation, implementing Datalog, performing type inference. This article will first go over the basics of what fixed points are, then we will provide a Datalog example to gain an intuition on both how a fixpoint solver works and how our library functions. Finally, we will go over how you can use our library to build a parser. At the end, we will link our GitHub repository which will contain the implementation in a few languages as well as some examples.
 
 ## What is a fixpoint?
 A fixpoint (or fixed point) of a function is a value that maps to itself. For example for the function `f(x) = x^2`, the fixpoint of this function is `0` and `1` since `x = x^2` for those situations. You can think of a fixpoint as a stable solution for a problem where input doesn't change output. In a Datalog interpreter, the inputs and output of an interpreter are a set of facts.
@@ -67,14 +67,24 @@ We have an initial mapping from each starting fact to a set of values that are k
 
 We now want to know if this is true `ancestor(tom, ann)?`
 We load this into our facts.
+Our facts are represented as a pair of values. The expression in question and whether it is true or not.
+```
+{
+	parent(tom, bob), true
+	parent(bob, ann), true
+	parent(bob, pat), true
+}
+```
+
+This is isomorphic to this mapping with empty set meaning not known, and the singleton set, known. This will be more useful when we introduce our library, so keep this in mind.
 ```
 {
 	parent(tom, bob) ↦ { true }
 	parent(bob, ann) ↦ { true }
 	parent(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { }
 }
 ```
+
 We leave the set empty because we don't know what the value might be.
 So we start iterating.
 For the first step we need to first apply these rules
@@ -85,13 +95,12 @@ ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 When we evaluate that, we get these result
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { }
-	ancestor(tom, bob) ↦ { true }
-	ancestor(bob, ann) ↦ { true }
-	ancestor(bob, pat) ↦ { true }
+	parent(tom, bob), true
+	parent(bob, ann), true
+	parent(bob, pat), true
+	ancestor(tom, bob), true
+	ancestor(bob, ann), true
+	ancestor(bob, pat), true
 }
 ```
 We unfortunately don't learn anything useful yet
@@ -100,28 +109,28 @@ However, during this process, we have to run through the first rule again, learn
 So now we learn this
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, bob) ↦ { true }
-	ancestor(bob, ann) ↦ { true }
-	ancestor(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { true }
-	ancestor(tom, pat) ↦ { true }
+	parent(tom, bob), true
+	parent(bob, ann), true
+	parent(bob, pat), true
+	ancestor(tom, bob), true
+	ancestor(bob, ann), true
+	ancestor(bob, pat), true
+	ancestor(tom, ann), true
+	ancestor(tom, pat), true
 }
 ```
 We have now found the result we are looking for. However, we need to iterate again to see if we learn any new facts.
 We iterate again and run through the rules again, wasting time to learn nothing.
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, bob) ↦ { true }
-	ancestor(bob, ann) ↦ { true }
-	ancestor(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { true }
-	ancestor(tom, pat) ↦ { true }
+	parent(tom, bob), true
+	parent(bob, ann), true
+	parent(bob, pat), true
+	ancestor(tom, bob), true
+	ancestor(bob, ann), true
+	ancestor(bob, pat), true
+	ancestor(tom, ann), true
+	ancestor(tom, pat), true
 }
 ```
 Since we didn't change from our last iteration, we know know that we have found the fixed point of this Datalog program.
@@ -144,12 +153,13 @@ ancestor(X, Y) :- parent(X, Y).
 ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 ```
 We will run through this example with the our approach.
-First, we set up our initial state as follows
+First, we set up our initial state as follows.
+We are using a map instead, using the expression as a key and a tuple that contains the set of possible answers, and a list of dependents.
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
+	parent(tom, bob) ↦ { true }, []
+	parent(bob, ann) ↦ { true }, []
+	parent(bob, pat) ↦ { true }, []
 }
 ```
 We have an initial mapping from each starting fact to a set of values that are known.
@@ -158,13 +168,11 @@ We now want to know if this is true `ancestor(tom, ann)?`
 We load this into our facts.
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { }
+	parent(tom, bob) ↦ { true }, []
+	parent(bob, ann) ↦ { true }, []
+	parent(bob, pat) ↦ { true }, []
 }
 ```
-We leave the set empty because we don't know what the value might be.
 Nothing that different so far but lets see how iteration works.
 
 Our approach both memoizes and tracks demand on the fly. This leads us to be non-deterministic.
@@ -181,25 +189,25 @@ So lets say that we evaluated the second rule of ancestor first. We will end up 
 Since we already know of the facts in demand for `ancestor(tom, ann)` and `ancestor(tom, pat)`, we evaluate it immediately and get this result in our iteration.
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { true } [Demand(parent(X, ann)) and Demand(parent(tom, Y))]
-	ancestor(tom, pat) ↦ { true } [Demand(parent(X, pat)) and Demand(parent(tom, Y))]
+	parent(tom, bob) ↦ { true }, []
+	parent(bob, ann) ↦ { true }, []
+	parent(bob, pat) ↦ { true }, []
+	ancestor(tom, ann) ↦ { true }, [Demand(parent(X, ann)) and Demand(parent(tom, Y))]
+	ancestor(tom, pat) ↦ { true }, [Demand(parent(X, pat)) and Demand(parent(tom, Y))]
 }
 ```
 And in two iterations we have found what we are looking for.
 We do now have to find the other facts and those simply load in.
 ```
 {
-	parent(tom, bob) ↦ { true }
-	parent(bob, ann) ↦ { true }
-	parent(bob, pat) ↦ { true }
-	ancestor(tom, ann) ↦ { true } [Demand(parent(X, ann)) and Demand(parent(tom, Y))]
-	ancestor(tom, pat) ↦ { true } [Demand(parent(X, pat)) and Demand(parent(tom, Y))]
-	ancestor(tom, bob) ↦ { true }
-	ancestor(bob, ann) ↦ { true }
-	ancestor(bob, pat) ↦ { true }
+	parent(tom, bob) ↦ { true }, []
+	parent(bob, ann) ↦ { true }, []
+	parent(bob, pat) ↦ { true }, []
+	ancestor(tom, ann) ↦ { true }, [Demand(parent(X, ann)) and Demand(parent(tom, Y))]
+	ancestor(tom, pat) ↦ { true }, [Demand(parent(X, pat)) and Demand(parent(tom, Y))]
+	ancestor(tom, bob) ↦ { true }, []
+	ancestor(bob, ann) ↦ { true }, []
+	ancestor(bob, pat) ↦ { true }, []
 }
 ```
 We iterate one more time and learn nothing new.
@@ -214,7 +222,7 @@ Our memoizing fixpoint monad is composed with a state monad. We use continuation
 A novel use case our lab has come up with is viewing parsing as a fixed point problem. Before going into it, we will need some background knowledge of parsing to demonstrate the motive.
 
 ### Motivation
-Most students learn about parsing via recursive decent, where functions represent rules in a grammar. This approach is used because of its one-to-one mapping between the code and the grammar. This expressive power makes implementation easy since you simply have to follow the grammar rules and then you are done. We can then extend this with parser combinators to build reusable parsers that compose extremely well and make writing parsers a breese.
+Most students learn about parsing via recursive decent, where functions represent rules in a grammar. This approach is used because of its one-to-one mapping between the code and the grammar. This expressive power makes implementation easy since you simply have to follow the grammar rules and then you are done. We can then extend this with parser combinators to build reusable parsers that compose extremely well and make writing parsers a breeze.
 
 The Achilles' heel for recursive decent is that it cannot handle what is called left recursion. Left recursion is when a grammar rule expands on the left side of either itself or another rule indirectly. This isn't too bad as we can rewrite the grammar to accommodate this. However, the downside is that now you are changing your grammar and therefore implementation. Or just the implementation and then you lose the one-to-one mapping. 
 
@@ -290,15 +298,15 @@ We establish demand for another subtract, a minus, and a number or just a number
 This leaves us with this state
 ```
 {
-	<subtract> ↦ {} [Demand(subtract, minus, number), Demand(number)]
+	<subtract> ↦ {}, [Demand(subtract, minus, number), Demand(number)]
 }
 ```
 We now have a demand for a resulting subtract rule.
 Since we can't make progress, we continue the iteration and try to parse a number as the other rule of subtract
 ```
 {
-	<subtract> ↦ {} [Demand(subtract, minus, number), Demand(number)]
-	<number> ↦ { ("1", 0) }
+	<subtract> ↦ {}, [Demand(subtract, minus, number), Demand(number)]
+	<number> ↦ { ("1", 0) }, []
 }
 ```
 We now have something. 
@@ -307,32 +315,36 @@ Notice how we are now storing a tuple of what we parsed with the index is succee
 Since `<number>` is a rule we have for subtract, we propagate demand through and get this:
 ```
 {
-	<subtract> ↦ { ("1", 0) } [Demand(subtract, minus, number), Demand(number)]
-	<number> ↦ { ("1", 0) }
+	<subtract> ↦ { ("1", 0) }, [Demand(subtract, minus, number), Demand(number)]
+	<number> ↦ { ("1", 0) }, []
 }
 ```
 Since we had a demand on subtract from subtract, we pass that value down into subtract and make progress on minus:
 ```
 {
-	<subtract> ↦ { ("1", 0) } [Demand(subtract, minus, number), Demand(number)]
-	<number> ↦ { ("1", 0) }
-	<minus> ↦ { ("-", 1) }
+	<subtract> ↦ { ("1", 0) }, [Demand(subtract, minus, number), Demand(number)]
+	<number> ↦ { ("1", 0) }, []
+	<minus> ↦ { ("-", 1) }, []
 }
 ```
 Since we made progress on minus, we can now parse another number
 ```
 {
-	<subtract> ↦ { ("1", 0) } [Demand(subtract, minus, number), Demand(number)]
-	<number> ↦ { ("1", 0), ("1", 2) }
-	<minus> ↦ { ("-", 1) }
+	<subtract> ↦ { ("1", 0) }, [Demand(subtract, minus, number), Demand(number)]
+	<number> ↦ { ("1", 0), ("1", 2) }, []
+	<minus> ↦ { ("-", 1) }, []
 }
 ```
 Since we found another number, we can now complete the rule for subtract
 ```
 {
-	<subtract> ↦ { ("1", 0), ("1 - 1", 2) } [Demand(subtract, minus, number), Demand(number)]
-	<number> ↦ { ("1", 0), ("1", 2) }
-	<minus> ↦ { ("-", 1) }
+	<subtract> ↦ { ("1", 0), ("1 - 1", 2) }, [Demand(subtract, minus, number), Demand(number)]
+	<number> ↦ { ("1", 0), ("1", 2) }, []
+	<minus> ↦ { ("-", 1) }, []
 }
 ```
 We know that we are done when one of the tuples contains the length of the input string since we can't make any progress after that point.
+
+## The end
+Hopefully you learned something useful that you can apply to your programs.
+You can find our GitHub here

@@ -15,6 +15,8 @@ keep it accessible and introduce monads and continuations at the end
 
 # A Small yet powerful tool for your belt
 
+What do recursive-decent parsing, datalog and program analysis all have in common? They all used fixed points to efficiently solve their respective problems. Let's see how this is the case.
+
 We have a small library that we use in our lab that enables us to do our work efficiently. This library can be used for all sorts of things from parsing, abstract interpretation, implementing Datalog, performing type inference. This article will first go over the basics of what fixed points are, then we will provide a Datalog example to gain an intuition on both how a fixpoint solver works and how our library functions. Finally, we will go over how you can use our library to build a parser. At the end, we will link our GitHub repository which will contain the implementation in a few languages as well as some examples.
 
 ## What is a fixpoint?
